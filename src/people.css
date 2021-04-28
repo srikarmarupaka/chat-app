@@ -1,0 +1,17 @@
+.chatlist {
+  list-style-type: none;
+}
+
+.messageBox {
+  width: 90%;
+}
+
+.send {
+  width: 10%;
+}
+
+.navbar {
+  color: white;
+  font-weight: bolder;
+}
+/*# sourceMappingURL=people.css.map */

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,SAAS,CAAA;EACL,eAAe,EAAE,IAAI;CACxB;;AACD,AAAA,WAAW,CAAA;EACP,KAAK,EAAC,GACV;CAAC;;AACD,AAAA,KAAK,CAAA;EACD,KAAK,EAAE,GAAG;CACb;;AACD,AAAA,OAAO,CAAA;EACH,KAAK,EAAE,KAAK;EACZ,WAAW,EAAE,MAAM;CACtB",
+    "sources": [
+        "people.scss"
+    ],
+    "names": [],
+    "file": "people.css"
+}

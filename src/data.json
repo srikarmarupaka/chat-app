@@ -1,0 +1,72 @@
+[
+    { 
+        "id":1,
+        "about":"Hey! There what's up?",
+        "pic":"logo192.png", 
+        "name": "John",
+        "chat": [
+            {
+                "id":2,
+                "messages" : [
+                    {
+                        "date":"",
+                        "text":"Hello...!"
+                    }
+                ]
+            }
+        ]
+    },
+    { 
+        "id":2,
+        "about":"Hey! There what's up?",
+        "pic":"logo192.png", 
+        "name": "Julie", 
+        "chat": [
+            {
+                "id":1,
+                "messages" : [
+                    {
+                        "date":"",
+                        "text":"Hello...!"
+                    }
+                ]
+            }
+        ]
+    },
+    { 
+        "id":3,
+        "about":"Hey! There what's up?",
+        "pic":"logo192.png", 
+        "name": "Maria" 
+    },
+    { 
+        "id":4,
+        "about":"Hey! There what's up?",
+        "pic":"logo192.png", 
+        "name": "Mary" 
+    },
+    { 
+        "id":5,
+        "about":"Hey! There what's up?",
+        "pic":"logo192.png", 
+        "name": "John" 
+    },
+    { 
+        "id":6,
+        "about":"Hey! There what's up?",
+        "pic":"logo192.png", 
+        "name": "Tom" 
+    },
+    { 
+        "id":7,
+        "about":"Hey! There what's up?",
+        "pic":"logo192.png", 
+        "name": "John" 
+    },
+    { 
+        "id":8,
+        "about":"Hey! There what's up?",
+        "pic":"logo192.png", 
+        "name": "Tiny" 
+    }
+]
