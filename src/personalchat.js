@@ -1,54 +1,97 @@
-import React, { useState , useEffect} from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
+import { Navbar, Form, FormControl, Button, InputGroup, Container } from 'react-bootstrap';
 import { useParams } from "react-router-dom";
-import { Navbar, Form, FormControl, Button, InputGroup } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './people.css';
 import list from './data.json';
-import $ from 'jquery'
-import Message from './message'
 
-function Personalchat() {
+export default function Personalchat() {
+  const [message, setMessage] = useState('');
+  const [messages, setMessages] = useState([]);
+  const { id } = useParams();
+  let data = list.filter(i => i.id === parseInt(id))
 
-    const { id } = useParams();
-    let data = list.filter(i => i.id === parseInt(id))
-    let messages = []
+  const messageListener = useCallback((msg) => {
+    setMessages((currMessages) => {
+      return [
+        ...currMessages,
+        {
+          message: msg,
+        },
+      ];
+    });
+  }, []);
 
-    const sendMessage = ()=>{
-        let messageText = $('.message').val()
-        console.log(messageText)
-        messages.push(messageText)
-        console.log(messages)
+
+  useEffect(() => {
+    return () => {
+      setMessages([]);
+      setMessage('');
+    };
+  }, [messageListener]);
+
+  const onChatType = (e) => {
+    setMessage(e.target.value);
+  };
+
+  const onEnter = (e) => {
+    if (e.keyCode === 13) {
+      setMessage('');
+      e.preventDefault();
+      sendMessage();
     }
+  };
 
+  const sendMessage = async () => {
+    try {
+      setMessages([
+        ...messages,
+        {
+          message,
+        },
+      ]);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const chatMessages = messages.map((m) => {
     return (
-        
-        <div>
+      <div key={m._id}>
+        <p>{m.message}</p>
+      </div>
+    );
+  });
+
+
+  return (
+    <div>
+      <header>
             <Navbar bg="primary" variant="dark" fixed="top" className="navbar">
                 {  data.map(i => {return(i.name)}) }
             </Navbar>
-            {/* <div className={styles.chatWrapper}>
-                <div className={styles.chatHistory}>{chatMessages}</div>
-            </div> */}
-            <div>
-                <ul>
-                    {messages.map(mess => <li>{ mess }</li> )}
-                </ul>
-            </div>
-            <Navbar bg="primary" variant="dark" fixed="bottom">
-                <InputGroup className="mb-3">
-                    <FormControl
-                        placeholder="Type your message here ..."
-                        aria-label="Recipient's username"
-                        aria-describedby="basic-addon2"
-                        className="message"
-                    />
-                    <InputGroup.Append>
-                        <Button variant="danger" onClick={sendMessage}>Send</Button>
-                    </InputGroup.Append>
-                </InputGroup>
-            </Navbar>
+      </header>
+      <div>
+        <div>
+          <Container>
+            <div>{chatMessages}</div>
+          </Container>
         </div>
-    )
-}
-
-export default Personalchat
+        <Navbar bg="primary" variant="dark" fixed="bottom">
+            <InputGroup className="mb-3">
+                <FormControl
+                   placeholder="Type your message here ..."
+                   onChange={onChatType}
+                   onKeyDown={onEnter}
+                   rows={1}
+                   value={message}
+                   className="message"
+                />
+                <InputGroup.Append>
+                    <Button variant="danger" type="submit" onClick={sendMessage}>Send</Button>
+                </InputGroup.Append>
+            </InputGroup>
+        </Navbar>
+      </div>
+    </div>
+  );
+};

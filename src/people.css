@@ -10,8 +10,17 @@
   width: 10%;
 }
 
+.input {
+  width: 100%;
+}
+
 .navbar {
   color: white;
   font-weight: bolder;
+}
+
+.message {
+  background-color: blueviolet;
+  color: antiquewhite;
 }
 /*# sourceMappingURL=people.css.map */
