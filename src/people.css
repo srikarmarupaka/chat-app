@@ -19,7 +19,9 @@
   font-weight: bolder;
 }
 
-.message {
+.messageBox {
+  position: absolute;
+  top: 10%;
   background-color: blueviolet;
   color: antiquewhite;
 }

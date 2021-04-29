@@ -1,8 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Navbar, Form, FormControl, Button, InputGroup, Container } from 'react-bootstrap';
+import { Navbar, FormControl, Button, InputGroup, Container, Badge } from 'react-bootstrap';
 import { useParams } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import list from './data.json';
+import Search from './search';
 
 export default function Personalchat() {
   const [message, setMessage] = useState('');
@@ -57,21 +58,22 @@ export default function Personalchat() {
   const chatMessages = messages.map((m) => {
     return (
       <div key={m._id}>
-        <p>{m.message}</p>
+        <Badge pill variant="primary">
+          {m.message}
+        </Badge>
       </div>
     );
   });
 
-
   return (
     <div>
       <header>
-            <Navbar bg="primary" variant="dark" fixed="top" className="navbar">
-                {  data.map(i => {return(i.name)}) }
+            <Navbar bg="primary" variant="dark" fixed="top" style={{"display":"flex"}} className="navbar">
+                <span style={{"flex":1}}>{  data.map(i => {return(i.name)}) }</span>
+                <Search list={ messages } />
             </Navbar>
       </header>
-      <div>
-        <div>
+        <div style={{"position":"absolute","top":"10%"}}>
           <Container>
             <div>{chatMessages}</div>
           </Container>
@@ -91,7 +93,6 @@ export default function Personalchat() {
                 </InputGroup.Append>
             </InputGroup>
         </Navbar>
-      </div>
     </div>
   );
 };
