@@ -3,9 +3,9 @@ import { Navbar, FormControl, Button, InputGroup, Container, Badge } from 'react
 import { useParams } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import list from './data.json';
-import Search from './search';
 
 export default function Personalchat() {
+  const [search, setSearch] = useState('')
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
   const { id } = useParams();
@@ -34,6 +34,8 @@ export default function Personalchat() {
     setMessage(e.target.value);
   };
 
+  const filtered = search.length === 0 ? messages : messages.filter(l => l.message.toLowerCase().includes(search.toLowerCase()))
+
   const onEnter = (e) => {
     if (e.keyCode === 13) {
       setMessage('');
@@ -55,7 +57,8 @@ export default function Personalchat() {
     }
   };
 
-  const chatMessages = messages.map((m) => {
+
+  const chatMessages = filtered.map((m) => {
     return (
       <div key={m._id}>
         <Badge pill variant="primary">
@@ -70,7 +73,13 @@ export default function Personalchat() {
       <header>
             <Navbar bg="primary" variant="dark" fixed="top" style={{"display":"flex"}} className="navbar">
                 <span style={{"flex":1}}>{  data.map(i => {return(i.name)}) }</span>
-                <Search list={ messages } />
+                <input 
+                    type="text" 
+                    placeholder="Search..." 
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                />
+                {/* <Search list={ messages } /> */}
             </Navbar>
       </header>
         <div style={{"position":"absolute","top":"10%"}}>

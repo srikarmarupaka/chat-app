@@ -1,9 +1,7 @@
 import React from 'react'
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
-import styles from './people.css'
 import PeopleList from './PeopleList';
 import Chat from './personalchat';
-import data from './data.json'
 
 
 function App() {

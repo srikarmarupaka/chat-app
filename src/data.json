@@ -2,71 +2,49 @@
     { 
         "id":1,
         "about":"Hey! There what's up?",
-        "pic":"logo192.png", 
-        "name": "John",
-        "chat": [
-            {
-                "id":2,
-                "messages" : [
-                    {
-                        "date":"",
-                        "text":"Hello...!"
-                    }
-                ]
-            }
-        ]
+        "pic":"Srikar1.jpg", 
+        "name": "Srikar"
     },
     { 
         "id":2,
-        "about":"Hey! There what's up?",
-        "pic":"logo192.png", 
-        "name": "Julie", 
-        "chat": [
-            {
-                "id":1,
-                "messages" : [
-                    {
-                        "date":"",
-                        "text":"Hello...!"
-                    }
-                ]
-            }
-        ]
+        "about":"Available",
+        "pic":"charan.jpg", 
+        "name": "Julie"
     },
     { 
         "id":3,
-        "about":"Hey! There what's up?",
+        "about":"Busy",
         "pic":"logo192.png", 
         "name": "Maria" 
     },
     { 
         "id":4,
-        "about":"Hey! There what's up?",
-        "pic":"logo192.png", 
-        "name": "Mary" 
+        "about":"Text only",
+        "pic":"naresh.jpeg", 
+        "name": "Kalikeya" 
     },
     { 
         "id":5,
-        "about":"Hey! There what's up?",
+        "about":"Calls only",
         "pic":"logo192.png", 
-        "name": "John" 
+        "name": "Shivagami" 
     },
     { 
         "id":6,
-        "about":"Hey! There what's up?",
+        "about":"Boredom",
         "pic":"logo192.png", 
-        "name": "Tom" 
+        "name": "Mahishmathi" 
     },
     { 
         "id":7,
-        "about":"Hey! There what's up?",
-        "pic":"logo192.png", 
-        "name": "John" 
+        "about":"Cheers",
+        "pic":"srikar.jpg", 
+        "name": "Ballaladeva" 
     },
     { 
         "id":8,
-        "about":"Hey! There what's up?",
+        "about":"Uhahahaha",
         "pic":"logo192.png", 
-        "name": "Tiny" 
+        "name": "Bahubali" 
     }
 ]

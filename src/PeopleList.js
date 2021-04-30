@@ -1,16 +1,26 @@
 import React, { useState } from 'react';
 import Styles from './people.css';
+import { Navbar } from 'react-bootstrap';
 import { List, ListItem, Divider, ListItemText, ListItemAvatar, Avatar, Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import list from './data.json';
-import Search from './search';
 
 export default function PeopleList() {
+  const [search, setSearch] = useState('')
+  const filtered = search.length === 0 ? list : list.filter(l => l.name.toLowerCase().includes(search.toLowerCase()))
   
   return (
     <div>
-      <Search list={ list } />
-      {list.map(item => (
+        <Navbar bg="primary" variant="dark" style={{"display":"flex"}} className="navbar">
+          <span style={{"flex":1}}>4S Chat APP</span>
+          <input 
+              type="text" 
+              placeholder="Search..." 
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+        </Navbar>
+      {filtered.map(item => (
         <Link to={`/chat/${item.id}`}>
             <List key={item} className={Styles.root}>
               <ListItem alignItems="flex-start">
