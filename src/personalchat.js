@@ -75,7 +75,7 @@ export default function Personalchat() {
                 <span style={{"flex":1}}>{  data.map(i => {return(i.name)}) }</span>
                 <input 
                     type="text" 
-                    placeholder="Search..." 
+                    placeholder="Search messages..." 
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                 />

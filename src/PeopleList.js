@@ -15,7 +15,7 @@ export default function PeopleList() {
           <span style={{"flex":1}}>4S Chat APP</span>
           <input 
               type="text" 
-              placeholder="Search..." 
+              placeholder="Search name..." 
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
